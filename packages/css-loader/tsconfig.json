@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist"
+    "types": [
+      "node",
+      "externals"
+    ],
+    "outDir": "./dist",
   }
 }

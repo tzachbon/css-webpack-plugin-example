@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom'
+import { App } from './app'
 
 ReactDOM.render(
-  <div>Hey</div>,
-  document.getElementById('root')
+  <App />,
+  document.body.appendChild(document.createElement('main'))
 )

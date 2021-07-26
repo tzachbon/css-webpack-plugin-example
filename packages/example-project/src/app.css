@@ -1,3 +1,21 @@
 .root {
-  background: red;
+  width: fit-content;
+  box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.452);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: salmon;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.root > span {
+  color: beige;
+}
+
+.root:hover {
+  box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.452);
+}
+
+.title {
+  font-size: 5rem;
 }
