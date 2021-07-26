@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CSSPlugin } = require('@webpack-css/plugin')
 
 module.exports = {
     mode: 'development',
@@ -13,14 +14,10 @@ module.exports = {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
                 type: 'asset',
             },
-            {
-                test: /\.css$/,
-                loader: require.resolve('@webpack-css/loader'),
-            },
         ],
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json'],
     },
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [new CSSPlugin(),new HtmlWebpackPlugin()],
 };
