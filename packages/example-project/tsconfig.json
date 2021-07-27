@@ -5,10 +5,10 @@
   },
   "references": [
     {
-      "path": "../css-plugin"
+      "path": "../css-plugin/src"
     },
     {
-      "path": "../css-loader"
+      "path": "../css-loader/src"
     }
   ]
 }

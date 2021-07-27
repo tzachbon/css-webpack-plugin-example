@@ -1,8 +1,25 @@
 {
+  "extends": "./tsconfig.base.json",
   "files": [],
+  "compilerOptions": {
+    "types": [
+      "node",
+      "mocha",
+      "chai"
+    ]
+  },
   "references": [
     {
-      "path": "./packages/css-plugin"
+      "path": "./packages/css-loader/src"
+    },
+    {
+      "path": "./packages/css-loader/test"
+    },
+    {
+      "path": "./packages/css-plugin/src"
+    },
+    {
+      "path": "./packages/css-plugin/test"
     },
     {
       "path": "./packages/example-project"

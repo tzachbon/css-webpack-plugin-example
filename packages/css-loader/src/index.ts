@@ -3,6 +3,7 @@ import { appendStyle } from "./append-style";
 import type { ExtendedLoaderContext } from './types';
 
 export * from './types'
+export { appendStyle }
 
 export default function cssLoader(this: ExtendedLoaderContext<any>, content: string): string {
   let injectCssInJs = true
@@ -13,9 +14,7 @@ export default function cssLoader(this: ExtendedLoaderContext<any>, content: str
     this.setOutputCSS(css)
   }
 
-  return `
-  ${injectCssInJs ? `(${appendStyle})(${JSON.stringify(css)})` : ''}
+  return JSON.stringify(`${injectCssInJs ? `(${appendStyle})(${JSON.stringify(css)})` : ''}
 
-  export default ${JSON.stringify(Object.fromEntries(classesMap.entries()), null, 3)}
-  `
+  export default ${JSON.stringify(Object.fromEntries(classesMap.entries()))}`)
 }
