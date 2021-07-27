@@ -4,40 +4,34 @@ import { injectLoader } from './inject-loader'
 
 interface ICSSPluginOptions {
   inject?: 'css' | 'js'
-  addLoader?: boolean
+  injectLoader?: boolean
 }
 
 export class CSSPlugin implements WebpackPluginInstance {
-  inject: NonNullable<ICSSPluginOptions['inject']>
-  addLoader: NonNullable<ICSSPluginOptions['addLoader']>
   private compiler!: Compiler
   private cssMap = new Map<string, string>()
+  private options?: Required<ICSSPluginOptions>
 
   constructor(
-    {
-      inject = 'css',
-      addLoader = true
-    }: ICSSPluginOptions = {}
-  ) {
-    this.inject = inject;
-    this.addLoader = addLoader;
-
-  }
+    private readonly usersOptions: ICSSPluginOptions = { injectLoader: true }
+  ) { }
 
   apply(compiler: Compiler) {
     this.compiler = compiler;
 
-    if (this.addLoader) {
+    if (this.getOptions().injectLoader) {
       injectLoader(this.compiler)
     }
 
-    this.compiler.hooks.compilation.tap(CSSPlugin.name, this.handleCompilation.bind(this))
+    this.compiler.hooks.afterPlugins.tap(CSSPlugin.name, this.createOptions.bind(this, this.usersOptions))
+    this.compiler.hooks.thisCompilation.tap(CSSPlugin.name, this.handleCompilation.bind(this))
   }
 
   private handleCompilation(compilation: Compilation) {
+
     this.compiler.webpack.NormalModule.getCompilationHooks(compilation).loader.tap(
       CSSPlugin.name,
-      this.handleLoader() as any
+      this.handleLoader.bind(this)
     )
 
     compilation.hooks.processAssets.tap(
@@ -49,25 +43,21 @@ export class CSSPlugin implements WebpackPluginInstance {
     )
   }
 
-  private handleLoader() {
-    return (webpackLoaderContext: ExtendedLoaderContext<any>, module: NormalModule) => {
-
-      if (this.isProduction && this.inject === 'css') {
-        webpackLoaderContext.setOutputCSS = (css: string) => {
-          this.cssMap.set(module.resource, css)
-        }
+  private handleLoader(webpackLoaderContext: object, module: NormalModule) {
+    const ctx = webpackLoaderContext as ExtendedLoaderContext<any>;
+    if (this.getOptions().inject === 'css') {
+      ctx.setOutputCSS = (css: string) => {
+        this.cssMap.set(module.resource, css)
       }
     }
   }
 
   private handleProcessAssets(compilation: Compilation) {
-    if (!(this.isProduction && this.inject === 'css')) return;
+    if (this.getOptions().inject !== 'css') return;
 
-    const randomName = Math.random().toString(36).slice(2)
-    const assetName = `${randomName}.css`
-
-
-    for (const [, entry] of compilation.entrypoints) {
+    let assetName = '.css'
+    for (const [name, entry] of compilation.entrypoints) {
+      assetName = name + assetName
       entry.getEntrypointChunk().files.add(assetName)
     }
 
@@ -84,8 +74,14 @@ export class CSSPlugin implements WebpackPluginInstance {
     return raw
   }
 
-  private get isProduction() {
-    return this.compiler.options.mode === 'production'
+  private createOptions(defaults: ICSSPluginOptions) {
+    this.options = {
+      inject: defaults.inject ?? this.compiler.options.mode === 'production' ? 'css' : 'js',
+      injectLoader: defaults.injectLoader ?? true
+    }
   }
 
+  private getOptions() {
+    return this.options || this.usersOptions
+  }
 }
