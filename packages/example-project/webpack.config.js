@@ -19,5 +19,5 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json'],
     },
-    plugins: [new CSSPlugin(),new HtmlWebpackPlugin()],
+    plugins: [new CSSPlugin(), new HtmlWebpackPlugin()],
 };

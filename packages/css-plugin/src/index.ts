@@ -4,7 +4,7 @@ import { injectLoader } from './inject-loader'
 
 interface ICSSPluginOptions {
   inject?: 'css' | 'js'
-  injectLoader?: boolean
+  filename?: string
 }
 
 export class CSSPlugin implements WebpackPluginInstance {
@@ -13,13 +13,14 @@ export class CSSPlugin implements WebpackPluginInstance {
   private options?: Required<ICSSPluginOptions>
 
   constructor(
-    private readonly usersOptions: ICSSPluginOptions = { injectLoader: true }
+    private readonly usersOptions: ICSSPluginOptions = {},
+    private readonly injectLoader = true
   ) { }
 
   apply(compiler: Compiler) {
     this.compiler = compiler;
 
-    if (this.getOptions().injectLoader) {
+    if (this.injectLoader) {
       injectLoader(this.compiler)
     }
 
@@ -55,9 +56,10 @@ export class CSSPlugin implements WebpackPluginInstance {
   private handleProcessAssets(compilation: Compilation) {
     if (this.getOptions().inject !== 'css') return;
 
-    let assetName = '.css'
+    let assetName: string = this.getOptions().filename!
+
     for (const [name, entry] of compilation.entrypoints) {
-      assetName = name + assetName
+      assetName ||= `${name}.css`
       entry.getEntrypointChunk().files.add(assetName)
     }
 
@@ -77,7 +79,7 @@ export class CSSPlugin implements WebpackPluginInstance {
   private createOptions(defaults: ICSSPluginOptions) {
     this.options = {
       inject: defaults.inject ?? this.compiler.options.mode === 'production' ? 'css' : 'js',
-      injectLoader: defaults.injectLoader ?? true
+      filename: defaults.filename || ''
     }
   }
 
