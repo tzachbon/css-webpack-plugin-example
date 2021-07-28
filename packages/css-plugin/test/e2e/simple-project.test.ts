@@ -4,7 +4,7 @@ import { BASE_URL, getSimpleProject } from '../fixtures/simple-project'
 describe('simple-project', () => {
   const project = getSimpleProject().beforeAndAfter()
 
-  it('should serve simple project and find only css link tags', async () => {
+  it('should serve simple project and find only css links tags', async () => {
     await project.startProject({ waitMatcher: new RegExp(`Accepting connections at ${BASE_URL}`) })
 
     const web = await project.initWebDriver()
