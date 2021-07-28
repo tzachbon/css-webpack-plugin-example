@@ -4,6 +4,7 @@ import rimraf from 'rimraf'
 import { promisify } from 'util'
 import { createFiles, Dir } from './create-files'
 import { exec } from './exec'
+import { Driver } from './page-driver'
 
 interface SetupOptions {
   files: Dir
@@ -14,6 +15,7 @@ export function setup(
     files
   }: SetupOptions
 ) {
+  let _driver: Driver | undefined;
   const processKiller = new Set<Function>()
   const rootDir = resolve(
     dirname(dirname(dirname(require.resolve('@webpack-css/plugin')))),
@@ -61,6 +63,16 @@ export function setup(
     }
   }
 
+  const webDriver = () => {
+    return _driver
+  }
+
+  const initWebDriver = async () => {
+    _driver = await Driver.create(payload.browser())
+
+    return payload.webDriver()!
+  }
+
   const payload = {
     files,
     rootDir,
@@ -68,7 +80,9 @@ export function setup(
     run,
     browser,
     startProject,
-    processKiller
+    processKiller,
+    webDriver,
+    initWebDriver
   }
 
   return payload

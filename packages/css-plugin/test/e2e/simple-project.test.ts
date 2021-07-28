@@ -7,17 +7,10 @@ describe('simple-project', () => {
   it('should get simple project files', async () => {
     await project.startProject({ waitMatcher: new RegExp(`Accepting connections at ${BASE_URL}`) })
 
-    const context = await project.browser().newContext()
-    const page = await context.newPage()
-    await page.goto(BASE_URL)
+    const web = await project.initWebDriver()
+    await web.goto(BASE_URL)
 
-    const styleScripts = await page.$$eval('style', styles => styles.map(s => s.textContent))
-    const links = await page.$$eval('link', links => links.map(link => ({
-      href: link.href,
-      rel: link.rel
-    })))
-
-    expect(styleScripts).to.deep.equal([])
-    expect(links).to.deep.equal([{ href: `${BASE_URL}/main.css`, rel: 'stylesheet' }])
+    expect(await web.styles()).to.deep.equal([])
+    expect(await web.links()).to.deep.equal([{ href: `${BASE_URL}/main.css`, rel: 'stylesheet' }])
   })
 })
