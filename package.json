@@ -13,9 +13,9 @@
     "test": "mocha -r ts-node/register \"packages/*/dist/test/**/*.test.js\"",
     "build": "npm-run-all build:*",
     "build:ts": "tsc --build",
-    "build:all": "lerna run build",
     "start": "tsc --build -w",
     "serve": "yarn workspace example-project run serve",
+    "preserve": "yarn build-example",
     "build-example": "yarn workspace example-project run build"
   },
   "devDependencies": {
