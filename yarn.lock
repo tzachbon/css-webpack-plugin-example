@@ -981,7 +981,14 @@
   resolved "https://registry.npmjs.org/@types/estree/-/estree-0.0.50.tgz#1e0caa9364d3fccd2931c3ed96fdbeaa5d4cca83"
   integrity sha512-C6N5s2ZFtuZRj54k2/zyRhNDjJwwcViAM3Nbm8zjBpbqAdZ00mr0CFxvSKeO8Y/e03WVFLpQMdHYVfUd6SB+Hw==
 
-"@types/glob@^7.1.1":
+"@types/execa@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@types/execa/-/execa-2.0.0.tgz#4dd5523520c51834bf8d0c280f460814e5238281"
+  integrity sha512-aBnkJ0r3khaZkHzu9pDZeWXrDg1N/ZtDGRQkK+KIqNVvvTvW+URXMUHQQCQMYdb2GPrcwu9Fq6l9iiT+pirIbg==
+  dependencies:
+    execa "*"
+
+"@types/glob@*", "@types/glob@^7.1.1":
   version "7.1.4"
   resolved "https://registry.npmjs.org/@types/glob/-/glob-7.1.4.tgz#ea59e21d2ee5c517914cb4bc8e4153b99e566672"
   integrity sha512-w+LsMxKyYQm347Otw+IfBXOv9UWVjpHpCDdbBMt8Kz/xbvCYNjP+0qPh91Km3iKfSRLBB0P7fAMf0KHrPu+MyA==
@@ -1049,6 +1056,14 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     csstype "^3.0.2"
+
+"@types/rimraf@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@types/rimraf/-/rimraf-3.0.1.tgz#1bbc106f0978742289103e080d4b41b3b4656e58"
+  integrity sha512-CAoSlbco40aKZ0CkelBF2g3JeN6aioRaTVnqSX5pWsn/WApm6IDxI4e4tD9D0dY/meCkyyleP1IQDVN13F4maA==
+  dependencies:
+    "@types/glob" "*"
+    "@types/node" "*"
 
 "@types/scheduler@*":
   version "0.16.2"
@@ -3015,6 +3030,21 @@ eventsource@^1.0.7:
   dependencies:
     original "^1.0.0"
 
+execa@*, execa@^5.0.0, execa@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/execa/-/execa-5.1.1.tgz#f80ad9cbf4298f7bd1d4c9555c21e93741c411dd"
+  integrity sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==
+  dependencies:
+    cross-spawn "^7.0.3"
+    get-stream "^6.0.0"
+    human-signals "^2.1.0"
+    is-stream "^2.0.0"
+    merge-stream "^2.0.0"
+    npm-run-path "^4.0.1"
+    onetime "^5.1.2"
+    signal-exit "^3.0.3"
+    strip-final-newline "^2.0.0"
+
 execa@^0.7.0:
   version "0.7.0"
   resolved "https://registry.npmjs.org/execa/-/execa-0.7.0.tgz#944becd34cc41ee32a63a9faf27ad5a65fc59777"
@@ -3054,21 +3084,6 @@ execa@^4.0.0:
     npm-run-path "^4.0.0"
     onetime "^5.1.0"
     signal-exit "^3.0.2"
-    strip-final-newline "^2.0.0"
-
-execa@^5.0.0:
-  version "5.1.1"
-  resolved "https://registry.npmjs.org/execa/-/execa-5.1.1.tgz#f80ad9cbf4298f7bd1d4c9555c21e93741c411dd"
-  integrity sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==
-  dependencies:
-    cross-spawn "^7.0.3"
-    get-stream "^6.0.0"
-    human-signals "^2.1.0"
-    is-stream "^2.0.0"
-    merge-stream "^2.0.0"
-    npm-run-path "^4.0.1"
-    onetime "^5.1.2"
-    signal-exit "^3.0.3"
     strip-final-newline "^2.0.0"
 
 expand-brackets@^2.1.4:

@@ -1,7 +1,9 @@
-{
-  "name": "example-project",
+export const getPackageJSON = (defaults: object) => JSON.stringify(({
+  ...defaults,
+  "name": "example" + Math.random().toString(36).slice(2),
   "version": "1.0.0",
   "main": "index.js",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
@@ -16,4 +18,4 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
-}
+}))
