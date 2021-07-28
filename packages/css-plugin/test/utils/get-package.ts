@@ -12,7 +12,7 @@ export const getPackageJSON = (defaults: object) => JSON.stringify(({
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "serve ./dist"
+    "serve": "serve ./dist -l 5000"
   },
   "dependencies": {
     "react": "^17.0.2",

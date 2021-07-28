@@ -14,7 +14,7 @@ export function setup(
     files
   }: SetupOptions
 ) {
-  const processKillers = new Set<Function>()
+  const processKiller = new Set<Function>()
   const rootDir = resolve(
     dirname(dirname(dirname(require.resolve('@webpack-css/plugin')))),
     `temp-${Math.random().toString(36).slice(2)}`
@@ -28,8 +28,8 @@ export function setup(
     afterEach(async () => {
       await promisify(rimraf)(rootDir)
 
-      for (const killProcess of processKillers) {
-        killProcess()
+      for (const kill of processKiller) {
+        kill()
       }
     })
 
@@ -38,21 +38,27 @@ export function setup(
 
   const run = (command: 'build' | 'start' | 'test' | 'install' | 'serve') => exec(
     `yarn ${command}`,
-    { cwd: rootDir }
+    { cwd: rootDir, processKiller }
   )
 
   const browser = () => (global as any)._browser as Browser
 
-  const startProject = async (waitMatcher: string | RegExp = /Accepting connections/) => {
+  const startProject = async (
+    {
+      waitMatcher
+    }: {
+      waitMatcher?: string | RegExp
+    } = {}
+  ) => {
     await run('install').emit()
     await run('build').emit();
     const serveProcess = run('serve');
-    const { killProcess, waitForOutput } = serveProcess;
 
-    processKillers.add(killProcess)
     serveProcess.emit()
 
-    await waitForOutput(waitMatcher)
+    if (waitMatcher) {
+      await serveProcess.waitForOutput(waitMatcher)
+    }
   }
 
   const payload = {
@@ -62,7 +68,7 @@ export function setup(
     run,
     browser,
     startProject,
-    processKillers
+    processKiller
   }
 
   return payload

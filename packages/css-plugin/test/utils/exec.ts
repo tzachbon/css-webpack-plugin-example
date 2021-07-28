@@ -1,12 +1,18 @@
-import { spawn } from 'child_process';
+import { spawn, SpawnOptions } from 'child_process';
 
-export function exec(command: string, options?: Parameters<typeof spawn>[2]) {
+interface ExecOptions extends SpawnOptions {
+  processKiller?: Set<Function>
+}
+
+export function exec(command: string, options?: ExecOptions) {
   let totalData = ''
   let resolve: Function
 
-  const emit = () => new Promise((res, rej) => {
+  const emit = () => new Promise((res, _rej) => {
+    options?.processKiller?.add(kill)
+
     resolve = () => {
-      res(undefined);
+      res(undefined)
       process.kill()
     };
 
@@ -16,13 +22,15 @@ export function exec(command: string, options?: Parameters<typeof spawn>[2]) {
       options || {}
     )
 
+    process.stderr!.on('data', (err: Buffer) => _rej(new Error(err.toString())))
+    process.stdout!.on('close', () => {
+      res(totalData)
+      options?.processKiller?.delete(kill)
+    })
     process.stdout!.on('data', (data: Buffer) => {
-      totalData += `\n${data.toString()}`
+      totalData += data.toString()
     })
 
-    process.stdout!.on('close', () => res(totalData))
-
-    process.stderr!.on('data', rej)
   })
 
   const waitForOutput = (stringOrRegex: string | RegExp) => new Promise((res, rej) => {
@@ -41,15 +49,13 @@ export function exec(command: string, options?: Parameters<typeof spawn>[2]) {
     }, 50)
   })
 
-  const killProcess = () => {
+  const kill = () => {
     resolve()
-
-    return totalData
   }
 
   return {
     emit,
-    killProcess,
+    kill,
     waitForOutput
   }
 }
