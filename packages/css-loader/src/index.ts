@@ -14,7 +14,9 @@ export default function cssLoader(this: ExtendedLoaderContext<any>, content: str
     this.setOutputCSS(css)
   }
 
-  return JSON.stringify(`${injectCssInJs ? `(${appendStyle})(${JSON.stringify(css)})` : ''}
+  const x = `${injectCssInJs ? `(${appendStyle})(${JSON.stringify(css)})` : ''}
 
-  export default ${JSON.stringify(Object.fromEntries(classesMap.entries()))}`)
+  export default ${JSON.stringify(Object.fromEntries(classesMap.entries()))}`
+
+  return x
 }

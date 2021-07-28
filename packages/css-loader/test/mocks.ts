@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
 export const loaderContextWithoutOutputCSS = {
-  resourcePath: '__path__',
+  resourcePath: '__path__.css',
 }
 
 export const loaderContext = {

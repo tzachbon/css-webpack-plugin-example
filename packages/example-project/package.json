@@ -1,5 +1,5 @@
 {
-  "name": "my-webpack-project",
+  "name": "example-project",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "serve": "serve ./dist"
   },
   "description": "My webpack project",
   "dependencies": {
