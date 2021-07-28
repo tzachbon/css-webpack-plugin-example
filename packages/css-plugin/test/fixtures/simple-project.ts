@@ -1,5 +1,4 @@
-import { getPackageJSON } from './get-package'
-import { Dir, setup } from './setup-test';
+import { Dir, getPackageJSON, setup } from '../utils';
 
 export const BASE_URL = 'http://localhost:5000';
 
