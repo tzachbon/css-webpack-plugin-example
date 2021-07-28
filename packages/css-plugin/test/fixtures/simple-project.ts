@@ -1,7 +1,7 @@
 import { getPackageJSON } from './get-package'
 import { Dir, setup } from './setup-test';
 
-
+export const BASE_URL = 'http://localhost:5000';
 
 export const getSimpleProject = () => {
   const name = 'simple-project';
