@@ -83,5 +83,5 @@ render(
 )
 ```
 
-## [Next chapter](./css-plugin-and-loader.md)
+## [Next chapter](./css-loader.md)
 ### [previous chapter](./native-css-issue.md)
