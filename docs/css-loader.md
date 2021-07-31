@@ -176,8 +176,8 @@ Some important points about the changes we implemented.
 * When the loader is used by Webpack, the context will be the loader context (`this`) from Webpack. You can read more about it [here](https://webpack.js.org/api/loaders/). It provides the resolved file path, which makes the namespace unique to the file.
 * The way we extract the classes selectors from the CSS file is naive implementation which not taking to account so other used cases. The ideal way is to use a CSS parser.
 
-The loader is implemented, we got a scoped class.
-But, everything is loaded from javascript, and if we would like to cache the CSS is impossible at the moment.
+The loader is implemented, we got scoped classes.
+But, everything is loaded from javascript, and if we would like to cache the CSS it is impossible at the moment.
 We will need to compose all the CSS into one file and create a Webpack Plugin.
 
 ## [Next chapter](./css-plugin.md)
