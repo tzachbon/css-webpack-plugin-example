@@ -22,7 +22,7 @@ This project is written as yarn workspace with typescript and has 2 main package
 - css-plugin
 ```
 
-We have an example from couple of frameworks, you can find them under `example-*`
+We have an example from couple of frameworks, you can find them under [`examples`](./examples)
 
 ### Bootstrap
 

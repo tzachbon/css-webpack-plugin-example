@@ -20,9 +20,6 @@
     },
     {
       "path": "./packages/css-plugin/test"
-    },
-    {
-      "path": "./packages/example-react"
     }
   ]
 }
