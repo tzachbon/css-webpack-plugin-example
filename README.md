@@ -8,6 +8,7 @@ How can we do it on our own in a modern setup with **Webpack** and **React**?_
 Agenda - 
 * [Part 1: Understanding the issue with native CSS.](./docs/native-css-issue.md)
 * [Part 2: Setting up our webpack application without a CSS plugin.](./docs/setup-the-solution.md)
-* [Part 3: Writing the Loader and the Plugin.](./docs/css-loader.md)
+* [Part 3: Writing the Loader.](./docs/css-loader.md)
+* [Part 4: Writing advanced Plugin.](./docs/css-plugin.md)
 
 > If you are here just for the implementation, skip to part 3.
