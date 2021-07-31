@@ -1,4 +1,4 @@
-# Writing the Loader and the Plugin
+# Writing the Loader
 
 So what are we aiming for?
 First thing first, we want to just load our CSS from our JS.
@@ -86,3 +86,6 @@ const config = {
 Restart the terminal and we got it! 🎊
 
 ![Loader success](./assets/loader-out-result.png)
+
+## [Next chapter](./css-plugin.md)
+### [Previous chapter](./setup-the-solution.md)

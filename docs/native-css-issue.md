@@ -18,9 +18,9 @@ Each one of these solutions has its benefits and tradeoffs, which is very import
 But, none of those solutions solve one of the most problematic issues: **CSS is global.**
 
 The global issue is a pretty difficult one to overcome once you face it.
-Let's say you have a button with a class called `.btn` and your style it has you like.
+Let's say you have a button with a class called `btn` and you style it.
 One day your co-worker works on a different page that has a button too,
-and he also decided to call it `.btn`.
+and he also decided to call it `btn`.
 The problem should be apparent. The styles would clash.
 
 Another significant issue is **specificity**, and to be more accurate is when the specificity is equaled between selectors and the last declaration found in the CSS is applied to the element.
