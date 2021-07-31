@@ -14,5 +14,8 @@
   },
   "dependencies": {
     "vue": "^3.1.5"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.1.5"
   }
 }
