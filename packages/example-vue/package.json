@@ -1,5 +1,5 @@
 {
-  "name": "example-project",
+  "name": "example-vue",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -13,7 +13,6 @@
     "serve": "serve ./dist"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "vue": "^3.1.5"
   }
 }

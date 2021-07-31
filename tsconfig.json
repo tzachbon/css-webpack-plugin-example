@@ -22,7 +22,7 @@
       "path": "./packages/css-plugin/test"
     },
     {
-      "path": "./packages/example-project"
+      "path": "./packages/example-react"
     }
   ]
 }
