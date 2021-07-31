@@ -24,10 +24,10 @@ class CSSPlugin {
   cssMap = new Map() // We will save here the CSS content
 
   /**
-   * Hook into the complier
-   * @param {import('webpack').Compiler} complier 
+   * Hook into the compiler
+   * @param {import('webpack').Compiler} compiler 
    */
-  apply(complier) { }
+  apply(compiler) { }
 }
 
 module.exports = {
@@ -44,16 +44,16 @@ class CSSPlugin {
   cssMap = new Map() // We will save here the CSS content
 
   /**
-   * Hook into the complier
-   * @param {import('webpack').Compiler} complier 
+   * Hook into the compiler
+   * @param {import('webpack').Compiler} compiler 
    */
-  apply(complier) {
+  apply(compiler) {
 
     // Hook into the global compilation.
-    complier.hooks.thisCompilation.tap('CSSPlugin', (compilation) => {
+    compiler.hooks.thisCompilation.tap('CSSPlugin', (compilation) => {
 
       // Hook into the loader to save the CSS content.
-      complier.webpack.NormalModule.getCompilationHooks(compilation).loader.tap(
+      compiler.webpack.NormalModule.getCompilationHooks(compilation).loader.tap(
         'CSSPlugin',
         (context, module) => {
 
@@ -102,7 +102,7 @@ class CSSPlugin {
   // ...
 
   apply(compiler) {
-      complier.hooks.thisCompilation.tap(
+      compiler.hooks.thisCompilation.tap(
         'CSSPlugin', 
         (compilation) => {
         // ...
@@ -111,7 +111,7 @@ class CSSPlugin {
         compilation.hooks.processAssets.tap(
           {
             name: 'CSSPlugin',
-            stage: complier.webpack.Compilation.PROCESS_ASSETS_STAGE_DERIVED
+            stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_DERIVED
           },
           () => {
 
@@ -128,7 +128,7 @@ class CSSPlugin {
                 }
 
                 // Create the source instance with the content.
-                const asset = new complier.webpack.sources.RawSource(content, false);
+                const asset = new compiler.webpack.sources.RawSource(content, false);
 
                 // Add it to the compilation
                 compilation.emitAsset(assetName, asset);

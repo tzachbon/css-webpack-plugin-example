@@ -5,7 +5,7 @@ import { injectLoader } from './inject-loader'
 
 
 export class CSSPlugin implements WebpackPluginInstance {
-  private complier!: Compiler
+  private compiler!: Compiler
   private cssMap = new Map<string, string>()
   private options?: Required<ICSSPluginOptions>
 
@@ -14,19 +14,19 @@ export class CSSPlugin implements WebpackPluginInstance {
     private readonly injectLoader = true
   ) { }
 
-  apply(complier: Compiler) {
-    this.complier = complier;
+  apply(compiler: Compiler) {
+    this.compiler = compiler;
 
     if (this.injectLoader) {
-      injectLoader(this.complier)
+      injectLoader(this.compiler)
     }
 
-    this.complier.hooks.afterPlugins.tap(CSSPlugin.name, this.createOptions.bind(this, this.usersOptions))
-    this.complier.hooks.thisCompilation.tap(CSSPlugin.name, this.handleCompilation.bind(this))
+    this.compiler.hooks.afterPlugins.tap(CSSPlugin.name, this.createOptions.bind(this, this.usersOptions))
+    this.compiler.hooks.thisCompilation.tap(CSSPlugin.name, this.handleCompilation.bind(this))
   }
 
   private handleCompilation(compilation: Compilation) {
-    this.complier.webpack.NormalModule.getCompilationHooks(compilation).loader.tap(
+    this.compiler.webpack.NormalModule.getCompilationHooks(compilation).loader.tap(
       CSSPlugin.name,
       this.handleLoader.bind(this)
     )
@@ -34,7 +34,7 @@ export class CSSPlugin implements WebpackPluginInstance {
     compilation.hooks.processAssets.tap(
       {
         name: CSSPlugin.name,
-        stage: this.complier.webpack.Compilation.PROCESS_ASSETS_STAGE_DERIVED
+        stage: this.compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_DERIVED
       },
       this.handleProcessAssets.bind(this, compilation)
     )
@@ -59,7 +59,7 @@ export class CSSPlugin implements WebpackPluginInstance {
       entry.getEntrypointChunk().files.add(assetName)
     }
 
-    const asset = new this.complier.webpack.sources.RawSource(this.getStaticCSS(), false)
+    const asset = new this.compiler.webpack.sources.RawSource(this.getStaticCSS(), false)
     compilation.emitAsset(assetName, asset)
   }
 
@@ -74,7 +74,7 @@ export class CSSPlugin implements WebpackPluginInstance {
 
   private createOptions(defaults: ICSSPluginOptions) {
     this.options = {
-      inject: defaults.inject ?? this.complier.options.mode === 'production' ? 'css' : 'js',
+      inject: defaults.inject ?? this.compiler.options.mode === 'production' ? 'css' : 'js',
       filename: defaults.filename || ''
     }
   }
