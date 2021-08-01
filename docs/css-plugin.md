@@ -73,7 +73,7 @@ class CSSPlugin {
 
 We hooked into the global compilation and then hooked into the loader (that we implemented in the last chapter).
 
-When the loader content is reachable, we will add a `setOutputCSS` method call it from the loader.
+When the loader content is reachable, we will add a `setOutputCSS` method to call it from the loader.
 
 Now lets call this method in `loader.js`:
 
@@ -91,9 +91,9 @@ function loader(fileValue) {
 
 ```
 
-As you can see we are not appending the style in the javascript, we using the method we added to the context.
+As you can see, we are not appending the style in the javascript. We use the method we added to the context.
 
-After we collected all the scoped CSS content we now need to hook into the asset process hook to let the compiler know that we have a new asset that it should handle.
+After collecting all the scoped CSS content, we now need to hook into the asset process hook to let the compiler know that we have a new asset that it should handle.
 
 Let's add it to the `apply` method:
 
@@ -138,13 +138,13 @@ class CSSPlugin {
 }
 ```
 
-Let's run build command:
+Let's run the build command:
 
 ```bash
 npm run build
 ```
 
-Now we should see `main.css` in the output folder and also injected to the html:
+Now we should see `main.css` in the output folder and also injected into the HTML:
 
 Output:
 
@@ -156,7 +156,7 @@ Output:
 
 
 And that's it!
-We finished the plugin, and have one CSS file for all of the CSS.
+We finished the Plugin and have one CSS file for all of the CSS.
 
 You can see my full implementation here in this repo.
 Fully implemented with typescript and tests, you can read more about it [here](../README.md)
