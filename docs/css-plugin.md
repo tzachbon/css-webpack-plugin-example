@@ -2,7 +2,7 @@
 # Writing advanced Plugin
 
 As said, we implemented a loader that can inject CSS into our page.
-But, what if we want to do it with a signal file and not an injection.
+But, what if we want to do it with a singal file and not an injection.
 
 Loading CSS as a file comes with many benefits, and the best of them is caching.
 The browser can cache the file and won't need to redownload it every time.
