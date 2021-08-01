@@ -7,9 +7,11 @@ The CSS can come in different ways in our HTML:
 
 * The first and the most simple is inline styling, which means that you explicitly write the style on the HTML tag. `<span style="color:red;">...</span>`
 
-* A different solution is to have an HTML tag called `<style>...</style>`, which his text content will be the style itself and select the different HTML elements.
+* A different solution is to have a `<style></style>` HTML element, describing how elements should be rendered in the document.
 
 * Another solution is to load it as a CSS file via link tag and select the different HTML elements inside the file.
+
+* Shadow dom can be a good candidate to answer those problems, but it has a lot of problem of it one regarding theming.
 
 ## The problems
 
