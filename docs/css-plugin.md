@@ -158,6 +158,8 @@ Output:
 And that's it!
 We finished the Plugin and have one CSS file for all of the CSS.
 
+Note that we are skipping dependencies graph ordering and filtering unused CSS for demonstration purposes.
+
 You can see my full implementation here in this repo.
 Fully implemented with typescript and tests, you can read more about it [here](../README.md)
 

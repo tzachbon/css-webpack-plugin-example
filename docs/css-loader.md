@@ -134,7 +134,7 @@ function scope(name, filepath, classes) {
 }
 ```
 
-After we are done scoping the class, let return the loader method.
+After we are done scoping the class, let's return the loader method.
 We need a way to connect the scoped class selector to the user's javascript code.
 
 ```js
@@ -171,10 +171,11 @@ Now it works with namespaced selector 🎉
 
 ![Class with namespaced selector](./assets/loader-namespaced-selector.png)
 
-Some important points about the changes we implemented.
+<mark>Some important points about the changes we implemented.</mark>
 
 * When the loader is used by Webpack, the context will be the loader context (`this`) from Webpack. You can read more about it [here](https://webpack.js.org/api/loaders/). It provides the resolved file path, which makes the namespace unique to the file.
 * The way we extract the classes selectors from the CSS file is naive implementation which not taking to account so other used cases. The ideal way is to use a CSS parser.
+* `this.resourcePath` refers to the local path, which mean that in other machine the path would look different
 
 The loader is implemented, we got scoped classes.
 But, everything is loaded from javascript, and if we would like to cache the CSS it is impossible at the moment.

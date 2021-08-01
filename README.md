@@ -33,6 +33,6 @@ yarn build
 
 ### Testing
 
-In the package `css-loader` we have integration tests the make sure we get the correct output from the loader.
+In the package `css-loader` we have integration tests to make sure we get the correct output from the loader.
 
 Inside the `css-plugin`, we create an e2e test that creates a project, serves it with playwright, and makes sure that UI works according to the output.
