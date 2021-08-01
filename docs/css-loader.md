@@ -91,7 +91,7 @@ Restart the terminal, and we got it! 🎊
 ![Loader success](./assets/loader-out-result.png)
 
 
-### What is happening behind the scenes?
+### hat’s happening behind the scenes?
 
 Webpack sees your CSS import inside the `index.js`. It looks for a loader and gives it the javascript value we want to evaluate in runtime.
 
@@ -101,14 +101,14 @@ Now we have our style, but everything is global.
 Every other language solves the global issue with scoping or namespacing.
 
 We will implement the namespace solution.
-This going to give us scoping, and each file going to have its own namespace.
+This is going to give us scoping, and each file going to have its own namespace.
 
 For example, our import is going to look like this:
 ```
 AppComponent123__myClass
 ```
 
-And if another component has the same class name, it won't matter behind the sense since the namespace will be different.
+And if another component has the same class name, it won't matter behind the scenes since the namespace will be different.
 
 Let's go the `loader.js` and add the following method:
 ```js
@@ -177,7 +177,7 @@ Now it works with namespaced selector 🎉
 * The way we extract the classes selectors from the CSS file is naive implementation which not taking to account so other used cases. The ideal way is to use a CSS parser.
 * `this.resourcePath` refers to the local path, which mean that in other machine the path would look different
 
-The loader is implemented, we got scoped classes.
+The loader is implemented and we got scoped classes.
 But, everything is loaded from javascript, and if we would like to cache the CSS it is impossible at the moment.
 We will need to compose all the CSS into one file and for that we will need to create a Webpack Plugin.
 

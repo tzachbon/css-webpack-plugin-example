@@ -5,7 +5,7 @@
 Currently, there are many different solutions to these problems,
 from utility frameworks, CSS preprocessors, and many more that try to help with most of the issues that native CSS has.
 
-In this article, I would like to solve some of those problems from starch with you.
+In this article, I would like to solve some of those problems from scratch with you.
 
 Let's set up our environment real quick, run those commands:
 
@@ -70,7 +70,7 @@ Now we need to go to `index.html` and make sure it has div with root id.
 </html>
 ```
 
-After all that, we are ready to write our app inside `src/index.js`:
+After all of that, we are ready to write our app inside `src/index.js`:
 ```js
 import React from 'react';
 import { render } from "react-dom";
