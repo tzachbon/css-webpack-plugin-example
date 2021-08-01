@@ -38,7 +38,7 @@ For our set up your answers should look like this:
 
 ## Configure React
 
-Go to `.babelrc` and make sure presets array includes "@babel/preset-react".
+maybe "Go to .babelrc and make sure presets array includes ["@babel/preset-react"](https://babeljs.io/docs/en/babel-preset-react) in order for JSX to be transformed.
 
 ```json
 {
