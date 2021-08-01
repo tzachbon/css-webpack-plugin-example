@@ -178,7 +178,7 @@ Some important points about the changes we implemented.
 
 The loader is implemented, we got scoped classes.
 But, everything is loaded from javascript, and if we would like to cache the CSS it is impossible at the moment.
-We will need to compose all the CSS into one file and create a Webpack Plugin.
+We will need to compose all the CSS into one file and for that we will need to create a Webpack Plugin.
 
 ## [Next chapter](./css-plugin.md)
 ### [Previous chapter](./setup-the-solution.md)
