@@ -13,6 +13,8 @@ Agenda -
 
 > If you are here just for the implementation, skip to part 3.
 
+> Disclaimer - This is not a production-ready plugin. If you want to check out one, you can see the one that my team and I are working on [Stylable](https://stylable.io/)
+
 ## Development
 
 This project is written as yarn workspace with typescript and has 2 main packages:
