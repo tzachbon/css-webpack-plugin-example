@@ -121,3 +121,4 @@ dist
 dist
 temp
 temp-*
+.DS_Store
