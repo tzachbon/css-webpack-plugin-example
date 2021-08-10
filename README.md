@@ -1,40 +1,38 @@
 # CSS Webpack Plugin - Style the modern web
-
-_Styling modern applications are no simple task.
-As we know, the web can handle HTML, CSS, and Javascript.
-If we would like to create a web app, we will need to serve an HTML with CSS for styling. 
-How can we do it on our own in a modern setup with **Webpack** and **React**?_
-
+​
+_Styling a modern application is no simple task - traditionally it is done by serving HTML with CSS for styling, and sprinkling the web app with Javascript to get the job done.
+The question is how to modernize the approach of setting up an app, and the answer is to use **Webpack** and **React**._
+​
 Agenda - 
 * [Part 1: Understanding the issue with native CSS.](./docs/native-css-issue.md)
-* [Part 2: Setting up our webpack application without a CSS plugin.](./docs/setup-the-solution.md)
+* [Part 2: Setting up our Webpack application without a CSS plugin.](./docs/setup-the-solution.md)
 * [Part 3: Writing the Loader.](./docs/css-loader.md)
 * [Part 4: Writing advanced Plugin.](./docs/css-plugin.md)
-
-> If you are here just for the implementation, skip to part 3.
-
-> Disclaimer - This is not a production-ready plugin. If you want to check out one, you can see the one that my team and I are working on [Stylable](https://stylable.io/)
-
+​
+> If you are here just for implementation information, skip to part 3.
+​
+> Disclaimer - This is not a production-ready plugin. To see one that is, check out what my team and I are working on: [Stylable](https://stylable.io/)
+​
 ## Development
-
-This project is written as yarn workspace with typescript and has 2 main packages:
-
+​
+This project is written as a Yarn workspace with TypeScript, and contains two main packages:
+​
 ```
 - css-loader
 - css-plugin
 ```
-
-We have an example from couple of frameworks, you can find them under [`examples`](./examples)
-
+​
+For examples of different frameworks, see [`examples`](./examples).
+​
 ### Bootstrap
-
+​
 ```bash
 yarn
 yarn build
 ```
-
+​
 ### Testing
-
-In the package `css-loader` we have integration tests to make sure we get the correct output from the loader.
-
-Inside the `css-plugin`, we create an e2e test that creates a project, serves it with playwright, and makes sure that UI works according to the output.
+​
+The package `css-loader` has integration tests to ensure the correct output is received from the loader.
+​
+Inside the `css-plugin` package is an e2e test that creates a project, serves it with playwright, and makes sure that the UI works according to the output.

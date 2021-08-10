@@ -2,12 +2,11 @@
 
 ## The solutions
 
-Currently, there are many different solutions to these problems,
-from utility frameworks, CSS preprocessors, and many more that try to help with most of the issues that native CSS has.
+Currently, there are many different solutions to these problems, from utility frameworks, CSS preprocessors, and others that all try to help with the issues that native CSS has.
 
 In this article, I would like to solve some of those problems from scratch with you.
 
-Let's set up our environment real quick, run those commands:
+Let's set up our environment real quick. To do this, run these commands:
 
 ```bash
 mkdir example-css-plugin
@@ -17,13 +16,13 @@ npm i -D webpack webpack-cli @webpack-cli/generators @babel/preset-react
 npm i react react-dom
 ```
 
-Once it is finished installing the development dependencies, let's run the webpack init command.
+When the development dependencies have finished installing, run the Webpack init command:
 
 ```bash
 npx webpack init
 ```
 
-For our set up your answers should look like this: 
+For our setup, your answers should look like this: 
 
 ```
 ? Which of the following JS solutions do you want to use? ES6
@@ -34,11 +33,11 @@ For our set up your answers should look like this:
 ? Do you like to install prettier to format generated configuration? No
 ```
 
-### **Make sure that you say, "Which of the following CSS solutions do you want to use" - none.**
+### **Make sure that this question is answered as such:  "Which of the following CSS solutions do you want to use" - none.**
 
 ## Configure React
 
-maybe "Go to .babelrc and make sure presets array includes ["@babel/preset-react"](https://babeljs.io/docs/en/babel-preset-react) in order for JSX to be transformed.
+Go to `.babelrc` and make sure that the presets array includes "@babel/preset-react".
 
 ```json
 {
@@ -84,4 +83,4 @@ render(
 ```
 
 ## [Next chapter](./css-loader.md)
-### [previous chapter](./native-css-issue.md)
+### [Previous chapter](./native-css-issue.md)
