@@ -26,8 +26,8 @@ Run our application:
 npm run serve
 ```
 ​
-Now you probably see this error in the console:
-![Error](./assets/failed-to-load-css-error.png)
+Now you probably see this error in the console:\
+![Error](./assets/failed-to-load-css-error.png)\
 ​
 This error makes a lot of sense, as webpack does not know how to handle CSS imports and we need to tell it how.
 ​
@@ -84,10 +84,8 @@ const config = {
   // ...
 }
 ```
-​
-Restart the terminal, and we got it! 🎊
-​
-![Loader success](./assets/loader-out-result.png)
+Restart the terminal, and we got it! 🎊\
+![Loader success](./assets/loader-out-result.png)\
 ​
 ​
 ### What’s happening behind the scenes?
@@ -164,9 +162,8 @@ render(
 )
 ```
 ​
-Now it works with namespaced selector 🎉
-​
-![Class with namespaced selector](./assets/loader-namespaced-selector.png)
+Now it works with namespaced selector 🎉\
+![Class with namespaced selector](./assets/loader-namespaced-selector.png)\
 ​
 <mark>Some important points about the changes we implemented.</mark>
 ​
