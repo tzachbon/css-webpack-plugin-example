@@ -142,19 +142,12 @@ Now we'll run the build command:
 npm run build
 ```
 ​
-We should see `main.css` in the output folder, and also injected into the HTML:
-​
-Output:
-​
-![Output](./assets/css-plugin-output.png)
-​
-`index.html`:
-​
-![HTML File](./assets/css-plugin-html-file.png)
-​
-​
-And that's it!
-​
+We should see `main.css` in the output folder, and also injected into the HTML:\
+Output:\
+![Output](./assets/css-plugin-output.png)\
+`index.html`:\
+![HTML File](./assets/css-plugin-html-file.png)\
+And that's it!\
 We finished the Plugin and have one CSS file for all of the CSS.
 ​
 Note that we skipped dependencies, graph ordering, and filtering unused CSS for demonstration purposes.
