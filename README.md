@@ -5,7 +5,7 @@ The question is how to modernize the approach of setting up an app, and the answ
 ​
 Agenda - 
 * [Part 1: Understanding the issue with native CSS.](./docs/native-css-issue.md)
-* [Part 2: Setting up our Webpack application without a CSS plugin.](./docs/setup-the-solution.md)
+* [Part 2: Setting up our webpack application without a CSS plugin.](./docs/setup-the-solution.md)
 * [Part 3: Writing the Loader.](./docs/css-loader.md)
 * [Part 4: Writing advanced Plugin.](./docs/css-plugin.md)
 ​

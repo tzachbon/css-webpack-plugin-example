@@ -16,7 +16,7 @@ npm i -D webpack webpack-cli @webpack-cli/generators @babel/preset-react
 npm i react react-dom
 ```
 
-When the development dependencies have finished installing, run the Webpack init command:
+When the development dependencies have finished installing, run the webpack init command:
 
 ```bash
 npx webpack init

@@ -5,11 +5,11 @@ As said, we implemented a loader that can inject CSS into our page. What if we w
 ​
 Loading CSS as a file comes with many benefits, and the best of them is caching. The browser can cache the file and won't need to redownload it every time it is needed.
 ​
-This operation is more complicated than the loader case since we will have more context about the Webpack bundling process.
+This operation is more complicated than the loader case since we will have more context about the webpack bundling process.
 ​
 ### What is a plugin?
 ​
-*A Webpack plugin is a JavaScript object that has an [apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) method. This apply method is called by the Webpack compiler, giving access to the entire compilation lifecycle.*
+*A webpack plugin is a JavaScript object that has an [apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) method. This apply method is called by the webpack compiler, giving access to the entire compilation lifecycle.*
 ​
 ​
 ## Creating the Plugin

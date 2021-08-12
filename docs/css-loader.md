@@ -167,14 +167,14 @@ Now it works with namespaced selector 🎉\
 ​
 <mark>Some important points about the changes we implemented.</mark>
 ​
-* When the loader is used by Webpack, the context will be the loader context (`this`) from Webpack. You can read more about it [here](https://webpack.js.org/api/loaders/). It provides the resolved file path, which makes the namespace unique to the file.
+* When the loader is used by webpack, the context will be the loader context (`this`) from webpack. You can read more about it [here](https://webpack.js.org/api/loaders/). It provides the resolved file path, which makes the namespace unique to the file.
 ​
 * The way we extract the classes selectors from the CSS file is a naive implementation that isn't taking into account other use cases. The ideal way is to use a CSS parser.
 * `this.resourcePath` refers to the local path, which means that in other machines, the path may look different.
 ​
 The loader is now implemented, and we've got scoped classes at this point. However, everything is loaded from JavaScript, and so it is not yet possible to cache the CSS.
 ​
-To do this, we will need to compose all the CSS into one file, and to do that, we will need to create a Webpack Plugin.
+To do this, we will need to compose all the CSS into one file, and to do that, we will need to create a webpack plugin.
 ​
 ## [Next chapter](./css-plugin.md)
 ### [Previous chapter](./setup-the-solution.md)
