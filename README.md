@@ -2,8 +2,7 @@
 ​
 _Styling a modern application is no simple task - traditionally it is done by serving HTML with CSS for styling, and sprinkling the web app with Javascript to get the job done.
 The question is how to modernize the approach of setting up an app, and the answer is to use **Webpack** and **React**._
-​
-Agenda - 
+## Agenda - 
 * [Part 1: Understanding the issue with native CSS.](./docs/native-css-issue.md)
 * [Part 2: Setting up our webpack application without a CSS plugin.](./docs/setup-the-solution.md)
 * [Part 3: Writing the Loader.](./docs/css-loader.md)
