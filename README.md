@@ -1,7 +1,8 @@
 # CSS Webpack Plugin - Style the modern web
 ​
 _Styling a modern application is no simple task - traditionally it is done by serving HTML with CSS for styling, and sprinkling the web app with Javascript to get the job done.
-The question is how to modernize the approach of setting up an app, and the answer is to use **Webpack** and **React**._
+The question is how to modernize the approach of setting up an app, and the answer is to use a bundler like Webpack and JavaScript framework / library like React. But how do we handle the **CSS**, and why is it not that simple as you would expect?_
+
 ## Agenda - 
 * [Part 1: Understanding the issue with native CSS.](./docs/native-css-issue.md)
 * [Part 2: Setting up our webpack application without a CSS plugin.](./docs/setup-the-solution.md)
